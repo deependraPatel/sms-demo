@@ -1,0 +1,102 @@
+<div class="main-content">
+
+  <div class="container-fluid">
+
+    <div class="row">
+     
+      <div class="col-md-10 ml-auto mr-auto">
+
+        <!--CARD DIV-->
+        <div class="card">
+
+          <!--CARD HEADER-->
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon"><i class="material-icons">contacts</i></div>
+            <h4 class="card-title">Send Indivisual SMS</h4>
+          </div>
+
+          <!--SEND SMS FORM -->
+          <form [formGroup]="smsForm" autocomplete="off" novalidate (ngSubmit)="createOwner(smsForm)" fxLayout="column wrap"
+          fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div class="card-body ">
+
+              <div class="row">
+                <label class="col-md-3">Sender ID</label>
+                <div class="col-md-9">
+                  <mat-form-field class="form-group">
+                    <input matInput type="text" formControlName="sender_id" placeholder="SMS 6 DIGIT ID" readonly>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3" for="templates_head">SMS Head</label>
+                <div class="col-md-9">
+                  <mat-form-field>
+                    <mat-select [placeholder]="Templates" formControlName="sms_head">
+                      <!--<ng-template ngFor let-country [ngForOf]="countries" [ngForTrackBy]="trackByCountryId">
+                          <mat-option *ngIf="!isExcluded(country)" [value]="country">
+                            <country-flag [country]="country"></country-flag>
+                          </mat-option>
+                        </ng-template>-->
+                      <mat-option [value]="">Select Template Head</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3" for="mobiles">Mobile No.</label>
+                <div class="col-md-9">
+                  <mat-form-field class="form-group">
+                    <textarea matInput placeholder="Mobile Numbers" id="mobiles" formControlName="mobile_no"></textarea>
+                    <mat-error *ngIf="hasError('mobile_no', 'required')">Mobile no is required</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3" for="msg_content">Content</label>
+                <div class="col-md-9">
+                  <mat-form-field class="form-group">
+                    <textarea matInput placeholder="Message Content" id="msg_content" formControlName="content"></textarea>
+                    <mat-error *ngIf="hasError('content', 'required')">Mobile no is required</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3" for="template_sign">SMS Signature</label>
+                <div class="col-md-9">
+                  <mat-form-field>
+                    <mat-select [id]="template_sign" formControlName="sms_sign">
+                      <mat-option [value]="">Select Template Signature</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+            </div>
+            <div class="card-footer ">
+              <div class="row">
+                <div class="col-md-9">
+                  <button class="btn btn-fill btn-rose mat-raised-button" mat-raised-button="" type="submit"><span
+                      class="mat-button-wrapper">Send</span>
+                    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+                    <div class="mat-button-focus-overlay"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!--END SEND SMS FORM -->
+
+        </div>
+        <!--CARD DIV END-->
+
+      </div>
+      <!--COL DIV END-->
+
+    </div>
+    <!--ROW DIV END-->
+  </div>
+  <!--CONTAINER DIV END-->
+
+</div>
+<!--MAIN CONTENT DIV END-->

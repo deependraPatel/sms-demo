@@ -1,0 +1,52 @@
+<div class="main-content">
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title ">Contacts</h4>
+            <p class="card-category"> List and manage of contacts</p>
+          </div>
+
+          <div class="card-body">
+            <div class="col-md-12 material-datatables">
+              <table datatable [dtOptions]="dtOptions"
+                class="table table-striped table-no-bordered table-hover dataTable dtr-inline" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Other Info</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody tbody *ngIf="persons?.length != 0">
+                  <tr *ngFor="let contact of persons">
+                    <td>{{cnt+1}}</td>
+                    <td>{{contact.fullName}}</td>
+                    <td>{{contact.mobile}}</td>
+                    <td>{{contact.others | json}}</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <tbody *ngIf="persons?.length == 0">
+                  <tr>
+                    <td colspan="5" class="no-data-available">No data!</td>
+                  </tr>
+                <tbody>
+              </table>
+            </div>
+
+          </div>
+          <!--CARD BODY END-->
+        </div>
+      </div>
+    </div>
+    <!--END MAIN ROW DIV-->
+  </div>
+  <!--END CONTAINER DIV-->
+</div>
+<!--END MAIN DIV-->
